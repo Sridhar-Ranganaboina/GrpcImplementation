@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcServerAPI";
+
+service ServerService {
+    // Get all values
+    rpc GetAll (Empty) returns (GetAllResponse);
+
+    // Get a single value by ID
+    rpc GetById (GetByIdRequest) returns (GetByIdResponse);
+
+    // Create a new value
+    rpc Create (CreateRequest) returns (Empty);
+
+    // Update a value by ID
+    rpc Update (UpdateRequest) returns (Empty);
+
+    // Delete a value by ID
+    rpc Delete (DeleteRequest) returns (Empty);
+}
+
+// Message for an empty request/response
+message Empty {}
+
+// Response for GetAll
+message GetAllResponse {
+    repeated string values = 1;
+}
+
+// Request for GetById
+message GetByIdRequest {
+    int32 id = 1;
+}
+
+// Response for GetById
+message GetByIdResponse {
+    string value = 1;
+}
+
+// Request for Create
+message CreateRequest {
+    string value = 1;
+}
+
+// Request for Update
+message UpdateRequest {
+    int32 id = 1;
+    string value = 2;
+}
+
+// Request for Delete
+message DeleteRequest {
+    int32 id = 1;
+}
