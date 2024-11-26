@@ -4,6 +4,16 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <PackageId>GrpcServerBase</PackageId>
+    <!-- Unique package ID -->
+    <Version>1.0.1</Version>
+    <!-- Version number -->
+    <Authors>Sridhar TechPro</Authors>
+    <!-- Author's name -->
+    <Description>A base library for gRPC services with .proto files and generated code.</Description>
+    <PackageTags>gRPC,protobuf,base</PackageTags>
+    <!-- Keywords for the package -->
+    <RepositoryUrl>https://github.com/Sridhar-Ranganaboina/GrpcImplementation</RepositoryUrl>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Google.Protobuf" Version="3.28.3" />
@@ -12,6 +22,12 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Protos\*.proto">
+      <Pack>true</Pack>
+      <PackagePath>contentFiles\any\any\Protos\</PackagePath>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Protobuf Include="Protos\ServerService.proto" GrpcServices="Both" />
